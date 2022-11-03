@@ -1,0 +1,16 @@
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\TesteFramework.exe.config
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\TesteFramework.exe
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\TesteFramework.pdb
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\SzarFramework.dll
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\SzarFramework.pdb
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.AssemblyReference.cache
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.SuggestedBindingRedirects.cache
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\Interop.SAPbobsCOM.dll
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\Interop.SAPbouiCOM.dll
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.ResolveComReference.cache
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.Properties.Resources.resources
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.GenerateResource.cache
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.CoreCompileInputs.cache
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.CopyComplete
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.exe
+D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.pdb
