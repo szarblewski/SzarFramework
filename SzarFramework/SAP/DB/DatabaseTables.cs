@@ -24,10 +24,20 @@ namespace SzarFramework.SAP
 				{
 					pbTables.Value++;
 					pbTables.Text = table.Value.Name;
-					if (userTablesList.All(x => x.TableName != table.Value.Name))
+                    if (userTablesList.Where(x => x.TableName == table.Value.Name).Count() <= 0)
 					{
 						AddTable(table.Value.Name, table.Value.Description, table.Value.TableTypeSAP);
-					}
+                    }
+                    else
+                    {
+                        OUTB tb = userTablesList.Where(x => x.TableName == table.Value.Name).SingleOrDefault();
+
+                        if(tb.Descr != table.Value.Description)
+                        {
+                            UpdateTable(table.Value.Name, table.Value.Description);
+                        }
+
+                    }
 				}
 				pbTables.Stop();
 				pbTables.ClearMemory();
@@ -72,6 +82,43 @@ namespace SzarFramework.SAP
             {
                 B1Exception.throwException("Erro ao Criar Tabela :: " + name + " - ", ex);
 
+            }
+        }
+
+        private static void UpdateTable(string name, string description)
+        {
+            int intRetCode = -1;
+            SAPbobsCOM.UserTablesMD objUserTablesMD = null;
+
+            try
+            {
+                //instancia objeto para atualizar tabela
+                objUserTablesMD = (UserTablesMD)B1AppDomain.Company.GetBusinessObject(BoObjectTypes.oUserTables);
+                if (objUserTablesMD.GetByKey(name))
+                {
+
+                    objUserTablesMD.TableDescription = description;
+
+                    //atualiza tabela
+                    intRetCode = objUserTablesMD.Update();
+                    //verifica e retorna erro
+                    if (intRetCode != 0 && intRetCode != -2035)
+                    {
+                        B1Exception.throwException("MetaData.UpdateTable: ", new Exception(B1AppDomain.Company.GetLastErrorDescription()));
+                    }
+
+                }
+                else
+                {
+                    B1AppDomain.Application.SetStatusBarMessage("Tabela não localizada no sistema :: " + name, BoMessageTime.bmt_Short, true);
+                }
+                objUserTablesMD.ClearMemory();
+
+            }
+            catch (Exception ex)
+            {
+
+                B1Exception.throwException("Erro ao Atualizar Tabela :: " + name + " - ", ex);
             }
         }
 	}

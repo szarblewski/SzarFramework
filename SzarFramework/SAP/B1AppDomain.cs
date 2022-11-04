@@ -9,11 +9,11 @@ namespace SzarFramework
     public sealed class B1AppDomain
     {
         //DICIONARIOS QUE ARMAZENAM AS INSTANCIAS DAS CLASSES
-        internal static Dictionary<string, FormBase> DicionarioFormEvent = new Dictionary<string, FormBase>();
-        internal static Dictionary<string, MenuBase> DicionarioMenuEvent = new Dictionary<string, MenuBase>();
+        internal static Dictionary<string, FormBase> DictionaryFormEvent = new Dictionary<string, FormBase>();
+        internal static Dictionary<string, MenuBase> DictionaryMenuEvent = new Dictionary<string, MenuBase>();
         internal static Dictionary<object, TableModel> DictionaryTablesFields = new Dictionary<object, TableModel>();
-        internal static Dictionary<object, UdoModel> DicionarioUdos = new Dictionary<object, UdoModel>();
-        internal static Dictionary<object, UdoChildsModel> DicionarioUdosFilhos = new Dictionary<object, UdoChildsModel>();
+        internal static Dictionary<object, UdoModel> DictionaryUdos = new Dictionary<object, UdoModel>();
+        internal static Dictionary<object, UdoChildsModel> DictionaryUdosChilds = new Dictionary<object, UdoChildsModel>();
 
         static private B1AppDomain objAppDomainClass = null;
         static private SAPbouiCOM.Application objApplication = null;
@@ -89,7 +89,7 @@ namespace SzarFramework
 
             if (!string.IsNullOrEmpty(formUid))
             {
-                DicionarioFormEvent.Add(formUid, formBase);
+                DictionaryFormEvent.Add(formUid, formBase);
             }
 
         }
@@ -98,7 +98,7 @@ namespace SzarFramework
         {
             if (!string.IsNullOrEmpty(menuUid))
             {
-                DicionarioMenuEvent.Add(menuUid, menuBase);
+                DictionaryMenuEvent.Add(menuUid, menuBase);
             }
         }
 
@@ -106,7 +106,7 @@ namespace SzarFramework
         {
             if (obj != null)
             {
-                DicionarioUdos.Add(obj, udo);
+                DictionaryUdos.Add(obj, udo);
             }
         }
 
@@ -114,7 +114,7 @@ namespace SzarFramework
         {
             if (obj != null)
             {
-                DicionarioUdosFilhos.Add(obj, udo);
+                DictionaryUdosChilds.Add(obj, udo);
             }
         }
 

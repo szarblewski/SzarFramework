@@ -20,7 +20,7 @@ namespace SzarFramework
                 rs.DoQuery(query);
                 while (!rs.EoF)
                 {
-                    TEntity t = table;
+                    TEntity t = (TEntity)Activator.CreateInstance(typeof(TEntity));
                     foreach (PropertyInfo info in t.GetType().GetProperties())
                     {
                         try{

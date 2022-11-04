@@ -9,7 +9,7 @@ namespace SzarFramework.Connections
     public class ConnectUI
     {
                 
-        public void Connect(Type[] types)
+        public void Connect(Type[] types, bool updateDatabase = false)
         {
             SAPbouiCOM.SboGuiApi objGUIApi = null;
             SAPbouiCOM.Application objApplication = null;
@@ -33,6 +33,8 @@ namespace SzarFramework.Connections
                     new Events();
                     B1AppDomain.Application.SetStatusBarMessage("Carregando Aplicação...", BoMessageTime.bmt_Short, false);
                     CreateInstanceClass(types);
+                    if (updateDatabase)
+                        SAP.Database.Update();
                     B1AppDomain.Application.SetStatusBarMessage("Carregamento Concluido!", BoMessageTime.bmt_Short, false);
 
                 }

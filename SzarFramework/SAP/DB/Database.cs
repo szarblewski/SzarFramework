@@ -14,8 +14,11 @@ namespace SzarFramework.SAP
         public static void Update()
         {
             B1AppDomain.Application.SetStatusBarMessage("Iniciando verificação de estrutura de dados...", BoMessageTime.bmt_Short, false);
-
+            
+            //atualiza tabelas
             DatabaseTables.Update();
+            //atualiza campos de usuarios
+            DatabaseFields.Update();
 
             B1AppDomain.Application.SetStatusBarMessage("Verificação concluida", BoMessageTime.bmt_Short, false);
         }

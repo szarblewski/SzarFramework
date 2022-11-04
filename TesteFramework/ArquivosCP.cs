@@ -24,7 +24,7 @@ namespace TesteFramework
         [Fields("Caminho", "Caminho", 250, false, BoFldSubTypes.st_None)]
         public string Caminho { get; set; }
 
-        [Fields("Banco", "Banco", 100, false, BoFldSubTypes.st_None)]
+        [Fields("Banco", "Banco", 150, false, BoFldSubTypes.st_None)]
         public string Banco { get; set; }
 
         [Fields("Agencia", "Agencia", 50, false, BoFldSubTypes.st_None)]

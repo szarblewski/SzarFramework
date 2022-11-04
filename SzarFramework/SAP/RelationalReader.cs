@@ -201,7 +201,7 @@ namespace SzarFramework
         }
 
 
-        internal static BoFldSubTypes RetornaSubTipo(string tipo)
+        internal static BoFldSubTypes GetSubType(string tipo)
         {
 
             switch (tipo)
@@ -248,7 +248,7 @@ namespace SzarFramework
 
         }
 
-        internal static BoFieldTypes RetornaTipoCampo(string tipo)
+        internal static BoFieldTypes GetFieldType(string tipo)
         {
 
             switch (tipo)

@@ -61,6 +61,41 @@ namespace SzarFramework.Querys {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT TableID
+        ///      , FieldID
+        ///      , AliasID
+        ///      , Descr
+        ///      , TypeID
+        ///      , EditType
+        ///      , SizeID
+        ///      , EditSize
+        ///      , Dflt
+        ///      , NotNull
+        ///      , IndexID
+        ///      , RTable
+        ///      , RField
+        ///      , Action
+        ///      , Sys
+        ///      , DfltDate
+        ///      , RelUDO
+        ///  FROM CUFD.
+        /// </summary>
+        internal static string cufdList {
+            get {
+                return ResourceManager.GetString("cufdList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select fieldid from CUFD where AliasID = &apos;{0}&apos; and TableID = &apos;{1}&apos;.
+        /// </summary>
+        internal static string getFieldID {
+            get {
+                return ResourceManager.GetString("getFieldID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select 
         ///       TableName
         ///       ,Descr
@@ -75,6 +110,32 @@ namespace SzarFramework.Querys {
         internal static string outbList {
             get {
                 return ResourceManager.GetString("outbList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select Code, NewFormSrf from OUDO where Code = &apos;{0}&apos;.
+        /// </summary>
+        internal static string udoList {
+            get {
+                return ResourceManager.GetString("udoList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT [TableID]
+        ///      ,[FieldID]
+        ///      ,[IndexID]
+        ///      ,[FldValue]
+        ///      ,[Descr]
+        ///      ,[FldDate]
+        ///  FROM [UFD1] 
+        ///  where tableid = &apos;{0}&apos; 
+        ///        and fieldid = (select FieldID from CUFD where TableID = &apos;{0}&apos; and AliasID = &apos;{1}&apos;).
+        /// </summary>
+        internal static string ufd1List {
+            get {
+                return ResourceManager.GetString("ufd1List", resourceCulture);
             }
         }
     }

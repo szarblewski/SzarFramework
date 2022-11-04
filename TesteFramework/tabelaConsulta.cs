@@ -10,7 +10,7 @@ namespace TesteFramework
 {
     public class tabelaConsulta
     {
-        List<tabelaConsulta> lista { get; set; }
+        public List<tabelaConsulta> lista { get; set; }
         public string TableName { get; set; }
         public string Descr { get; set; }
         public int TblNum { get; set; }
@@ -20,7 +20,7 @@ namespace TesteFramework
         public string Archivable { get; set; }
         public string ArchivDate { get; set; }
 
-        public tabelaConsulta()
+        public void PreenchetabelaConsulta()
         {
             Recordset ors = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
             lista = ors.DoQuery(@"select 

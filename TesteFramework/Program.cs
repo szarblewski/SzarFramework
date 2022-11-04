@@ -22,12 +22,10 @@ namespace TesteFramework
 
             //exemplo de conexao com ui
             ConnectUI con = new ConnectUI();
-            con.Connect("TesteFramework".GetTypesFromAssembly());
+            con.Connect("TesteFramework".GetTypesFromAssembly(), true);
+                       
 
-            SzarFramework.SAP.Database.Update();
-
-            tabelaConsulta tb = new tabelaConsulta();
-
+            
             //exemplo de conexao com DI
             //ConnectDI con = new ConnectDI();
             //con.Server = "192.168.1.220\\SRVSAP";
