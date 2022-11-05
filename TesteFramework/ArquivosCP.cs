@@ -10,7 +10,7 @@ using SzarFramework;
 namespace TesteFramework
 {
     [Tables("BUMM_ARQUIVOSCP", "BUMM: ARQUIVOS CP", BoUTBTableType.bott_NoObject, false)]
-    public class ArquivosCP : TableBase
+    public class ArquivosCP 
     {
 
         [Fields("Tipo", "Tipo", 2, false, BoFldSubTypes.st_None)]

@@ -19,6 +19,9 @@ namespace SzarFramework.SAP
             DatabaseTables.Update();
             //atualiza campos de usuarios
             DatabaseFields.Update();
+            //atualiza udos
+            DatabaseUdo.Update();
+
 
             B1AppDomain.Application.SetStatusBarMessage("Verificação concluida", BoMessageTime.bmt_Short, false);
         }

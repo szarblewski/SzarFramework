@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,18 +51,23 @@
     <Compile Include="Attributes\ValidValuesAttribute.cs" />
     <Compile Include="Connections\DI\ConnectDI.cs" />
     <Compile Include="Connections\UI\ConnectUI.cs" />
-    <Compile Include="Extensions\ObjectExtension.cs" />
-    <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="dotNet\WindowWrapper.cs" />
+    <Compile Include="Extensions\ApplicationExtensions.cs" />
+    <Compile Include="Extensions\ComboBoxExtensions.cs" />
+    <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\MenusExtensions.cs" />
+    <Compile Include="Extensions\ObjectExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Enums\TableType.cs" />
-    <Compile Include="Extensions\UserFieldsMDExtension.cs" />
-    <Compile Include="Models\CUFD.cs" />
+    <Compile Include="Extensions\UserFieldsMDExtensions.cs" />
+    <Compile Include="Models\CUFDModel.cs" />
     <Compile Include="Models\FieldModel.cs" />
     <Compile Include="Models\LayoutsUDOModel.cs" />
-    <Compile Include="Models\OUTB.cs" />
+    <Compile Include="Models\OUTBModel.cs" />
     <Compile Include="Models\TableModel.cs" />
     <Compile Include="Models\UdoChildsModel.cs" />
     <Compile Include="Models\UdoModel.cs" />
-    <Compile Include="Models\UFD1.cs" />
+    <Compile Include="Models\UFD1Model.cs" />
     <Compile Include="Models\ValidValuesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Querys\hana.Designer.cs">

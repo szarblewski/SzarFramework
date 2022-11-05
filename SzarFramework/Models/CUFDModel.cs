@@ -8,7 +8,7 @@ using SzarFramework.Querys;
 
 namespace SzarFramework.Models
 {
-    internal class CUFD
+    internal class CUFDModel
     {
         public string TableID { get; set; }
         public int FieldID { get; set; }
@@ -29,11 +29,11 @@ namespace SzarFramework.Models
         public string RelUDO { get; set; }
 
 
-        internal List<CUFD> Fields(string tableName = "")
+        internal List<CUFDModel> Fields(string tableName = "")
         {
             try
             {
-                List<CUFD> flds = new List<CUFD>();
+                List<CUFDModel> flds = new List<CUFDModel>();
                 Recordset oRs = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
                 if (string.IsNullOrEmpty(tableName))
                 {

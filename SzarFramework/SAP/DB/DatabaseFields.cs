@@ -20,17 +20,17 @@ namespace SzarFramework.SAP
         {
             try
             {
-                OUTB userTables = new OUTB();
-                CUFD userFields = new CUFD();
+                OUTBModel userTables = new OUTBModel();
+                CUFDModel userFields = new CUFDModel();
 
-                List<OUTB> userTablesList = userTables.Tables();
+                List<OUTBModel> userTablesList = userTables.Tables();
                 int qtyFields = B1AppDomain.DictionaryTablesFields.Sum(x => x.Value.Fields.Count());
 
                 ProgressBar pbFields = B1AppDomain.Application.StatusBar.CreateProgressBar("Aguarde... Atualizando Campos de usuários", qtyFields, false);
 
                 foreach (KeyValuePair<object, TableModel> table in B1AppDomain.DictionaryTablesFields)
                 {
-                    List<CUFD> userFieldList = table.Value.TableType == TableType.System ?
+                    List<CUFDModel> userFieldList = table.Value.TableType == TableType.System ?
                         userFields.Fields() :
                         userFields.Fields("@" + table.Value.Name);
 
@@ -67,7 +67,7 @@ namespace SzarFramework.SAP
             }
         }
 
-        private static bool VerifyField(FieldModel field, CUFD cUFD)
+        private static bool VerifyField(FieldModel field, CUFDModel cUFD)
         {
             bool mand = cUFD.NotNull == "Y";
             if (mand != (field.Mandatory == BoYesNoEnum.tYES) && field.Type != BoFieldTypes.db_Date && field.Type != BoFieldTypes.db_Memo)
@@ -125,8 +125,8 @@ namespace SzarFramework.SAP
 
             if (field.ValidValues != null)
             {
-                UFD1 ufd1 = new UFD1();
-                foreach (UFD1 item in ufd1.FieldItems(field.TableName, field.Name))
+                UFD1Model ufd1 = new UFD1Model();
+                foreach (UFD1Model item in ufd1.FieldItems(field.TableName, field.Name))
                 {
                     if (field.ValidValues.Where(p => p.Value == item.FldValue && p.Description == item.Descr).Count() <= 0)
                     {

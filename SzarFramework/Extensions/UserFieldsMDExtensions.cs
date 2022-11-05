@@ -7,7 +7,7 @@ using SzarFramework.Models;
 
 namespace SzarFramework
 {
-    internal static class UserFieldsMDExtension
+    internal static class UserFieldsMDExtensions
     {
         internal static SAPbobsCOM.UserFieldsMD AddValidValues(this SAPbobsCOM.UserFieldsMD oUserFieldsMd, List<ValidValuesModel> values)
         {

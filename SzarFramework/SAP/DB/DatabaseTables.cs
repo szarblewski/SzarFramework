@@ -17,8 +17,8 @@ namespace SzarFramework.SAP
         {
 			try
 			{
-				OUTB userTables = new OUTB();
-				List<OUTB> userTablesList = userTables.Tables();
+				OUTBModel userTables = new OUTBModel();
+				List<OUTBModel> userTablesList = userTables.Tables();
 				ProgressBar pbTables = B1AppDomain.Application.StatusBar.CreateProgressBar("Aguarde... Atualizando Tabelas", B1AppDomain.DictionaryTablesFields.Count, false);
 				foreach (KeyValuePair<object, TableModel> table in B1AppDomain.DictionaryTablesFields.Where(x => x.Value.TableType == TableType.User))
 				{
@@ -30,7 +30,7 @@ namespace SzarFramework.SAP
                     }
                     else
                     {
-                        OUTB tb = userTablesList.Where(x => x.TableName == table.Value.Name).SingleOrDefault();
+                        OUTBModel tb = userTablesList.Where(x => x.TableName == table.Value.Name).SingleOrDefault();
 
                         if(tb.Descr != table.Value.Description)
                         {

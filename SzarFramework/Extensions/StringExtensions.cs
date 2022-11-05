@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace SzarFramework
 {
-    public static class StringExtension 
+    public static class StringExtensions 
     {
         public static Type[] GetTypesFromAssembly(this string assemblyName)
         {

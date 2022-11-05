@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SzarFramework
 {
-    public static class ObjectExtension
+    public static class ObjectExtensions
     {
         public static void ClearMemory(this object obj)
         {

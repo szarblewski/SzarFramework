@@ -14,6 +14,7 @@ namespace SzarFramework
         internal static Dictionary<object, TableModel> DictionaryTablesFields = new Dictionary<object, TableModel>();
         internal static Dictionary<object, UdoModel> DictionaryUdos = new Dictionary<object, UdoModel>();
         internal static Dictionary<object, UdoChildsModel> DictionaryUdosChilds = new Dictionary<object, UdoChildsModel>();
+        public static Dictionary<string, string> DictionaryUdosForms = new Dictionary<string, string>();
 
         static private B1AppDomain objAppDomainClass = null;
         static private SAPbouiCOM.Application objApplication = null;

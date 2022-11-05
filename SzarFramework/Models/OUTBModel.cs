@@ -1,33 +1,37 @@
 ﻿using SAPbobsCOM;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SzarFramework.Querys;
 
+
 namespace SzarFramework.Models
 {
-    internal class UFD1
+    internal class OUTBModel
     {
-        public string TableID { get; set; }
-        public int FieldID { get; set; }
-        public int IndexID { get; set; }
-        public string FldValue { get; set; }
+        public string TableName { get; set; }
         public string Descr { get; set; }
-        public DateTime FldDate { get; set; }
+        public int TblNum { get; set; }
+        public string ObjectType { get; set; }
+        public string UsedInObj { get; set; }
+        public string LogTable { get; set; }
+        public string Archivable { get; set; }
+        public string ArchivDate { get; set; }
 
 
-        internal List<UFD1> FieldItems(string tableName, string name)
+        internal List<OUTBModel> Tables()
         {
             try
             {
-                List<UFD1> fieldItems = new List<UFD1>();
+                List<OUTBModel> tbs = new List<OUTBModel>();
 
                 Recordset oRs = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
-                fieldItems = oRs.DoQuery(String.Format(sql.ufd1List, tableName, name), this);
+                tbs = oRs.DoQuery(sql.outbList, this);
                 oRs.ClearMemory();
-                return fieldItems;
+                return tbs;
 
             }
             catch (Exception ex)
@@ -37,5 +41,7 @@ namespace SzarFramework.Models
             }
         }
         
+
+
     }
 }

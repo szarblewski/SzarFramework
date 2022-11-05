@@ -19,6 +19,7 @@ namespace TesteFramework
             {
                 bubbleEvent = true;
                 B1AppDomain.Application.MessageBox("agora vai");
+                
                 return;
             }
             catch (Exception ex)

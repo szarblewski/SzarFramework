@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArquivosCP.cs" />
+    <Compile Include="OrdemPagto.cs" />
     <Compile Include="parceiro.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
