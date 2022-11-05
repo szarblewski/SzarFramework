@@ -1,3 +1,6 @@
+
+Ajude a manter o código, pix: szarblewski@outlook.com
+
 # SzarFramework
 Biblioteca para auxiliar no desenvolvimento de addons para sap B1.
 Para iniciar um projeto UI utilizando a biblioteca tem que fazer referencia as bibliotecas.
