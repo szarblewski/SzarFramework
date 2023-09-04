@@ -131,7 +131,7 @@ namespace SzarFramework
                     {
                         UdoChildsModel udf = new UdoChildsModel();
                         udf.TableName = udoChildAttribute.TableName;
-                        udf.TableFather = udoChildAttribute.TabelaFather;
+                        udf.TableFather = udoChildAttribute.TableFather;
 
                         B1AppDomain.RegisterUdoChild(this, udf);
                     }

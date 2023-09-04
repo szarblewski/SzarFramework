@@ -29,6 +29,54 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <ShouldCreateLogs>True</ShouldCreateLogs>
+    <AdvancedSettingsExpanded>True</AdvancedSettingsExpanded>
+    <UpdateAssemblyVersion>True</UpdateAssemblyVersion>
+    <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
+    <UpdateAssemblyInfoVersion>True</UpdateAssemblyInfoVersion>
+    <AssemblyVersionSettings>None.None.None.Increment</AssemblyVersionSettings>
+    <UpdatePackageVersion>False</UpdatePackageVersion>
+    <AssemblyInfoVersionType>SettingsVersion</AssemblyInfoVersionType>
+    <InheritWinAppVersionFrom>None</InheritWinAppVersionFrom>
+    <AssemblyFileVersionSettings>None.None.None.Increment</AssemblyFileVersionSettings>
+    <AssemblyInfoVersionSettings>None.None.None.Increment</AssemblyInfoVersionSettings>
+    <AssemblyInfoVersionSemVerSettings>AssemblyVersion.IncrementWithAutoReset.None</AssemblyInfoVersionSemVerSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,16 +100,21 @@
     <Compile Include="Connections\DI\ConnectDI.cs" />
     <Compile Include="Connections\UI\ConnectUI.cs" />
     <Compile Include="dotNet\WindowWrapper.cs" />
+    <Compile Include="Enums\ObjectsType.cs" />
     <Compile Include="Extensions\ApplicationExtensions.cs" />
+    <Compile Include="Extensions\ButtonComboExtensions.cs" />
     <Compile Include="Extensions\ComboBoxExtensions.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
+    <Compile Include="Extensions\GridExtensions.cs" />
     <Compile Include="Extensions\MenusExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Enums\TableType.cs" />
     <Compile Include="Extensions\UserFieldsMDExtensions.cs" />
     <Compile Include="Models\CUFDModel.cs" />
+    <Compile Include="Models\public\DataBindModel.cs" />
     <Compile Include="Models\FieldModel.cs" />
+    <Compile Include="Models\public\GridFormaterModel.cs" />
     <Compile Include="Models\LayoutsUDOModel.cs" />
     <Compile Include="Models\OUTBModel.cs" />
     <Compile Include="Models\TableModel.cs" />
@@ -75,6 +128,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>hana.resx</DependentUpon>
     </Compile>
+    <Compile Include="Querys\QuerySelect.cs" />
     <Compile Include="Querys\sql.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -86,6 +140,11 @@
     <Compile Include="SAP\DB\DatabaseFields.cs" />
     <Compile Include="SAP\DB\DatabaseTables.cs" />
     <Compile Include="SAP\DB\DatabaseUdo.cs" />
+    <Compile Include="SAP\DB\QuerysBuilds\QB.cs" />
+    <Compile Include="SAP\DB\Repositories\IRepositoryBaseNoObject.cs" />
+    <Compile Include="SAP\DB\Repositories\IRepositoryBaseUdo.cs" />
+    <Compile Include="SAP\DB\Repositories\RepositoryBaseNoObject.cs" />
+    <Compile Include="SAP\DB\Repositories\RepositoryBaseUdo.cs" />
     <Compile Include="SAP\Events.cs" />
     <Compile Include="SAP\FormBase.cs" />
     <Compile Include="SAP\Global.cs" />
@@ -93,11 +152,37 @@
     <Compile Include="SAP\RelationalReader.cs" />
     <Compile Include="SAP\TableBase.cs" />
     <Compile Include="Extensions\RecordsetExtensions.cs" />
+    <Compile Include="Utils\ChooseFromList.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Querys\hana.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>hana.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Querys\sql.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>sql.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Querys\hana\cufdList.sql" />
+    <Content Include="Querys\hana\getFieldID.sql" />
+    <Content Include="Querys\hana\outbList.sql" />
+    <Content Include="Querys\hana\udoList.sql" />
+    <Content Include="Querys\hana\ufd1List.sql" />
+    <Content Include="Querys\sql\cufdList.sql" />
+    <Content Include="Querys\sql\getFieldID.sql" />
+    <Content Include="Querys\sql\outbList.sql" />
+    <Content Include="Querys\sql\udoList.sql" />
+    <Content Include="Querys\sql\ufd1List.sql" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="SAPbobsCOM">
-      <Guid>{FC8030BE-F5D2-4B8E-8F92-44228FE30090}</Guid>
-      <VersionMajor>9</VersionMajor>
+      <Guid>{FC8030BE-F5D2-4B8E-8F92-44228FE30100}</Guid>
+      <VersionMajor>10</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
@@ -106,34 +191,13 @@
     </COMReference>
     <COMReference Include="SAPbouiCOM">
       <Guid>{6048236A-956D-498D-A6F1-9C81C13AB6E8}</Guid>
-      <VersionMajor>9</VersionMajor>
+      <VersionMajor>10</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Querys\hana\" />
-    <Folder Include="Utils\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Querys\hana.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>hana.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Querys\sql.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>sql.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Querys\sql\cufdList.sql" />
-    <Content Include="Querys\sql\getFieldID.sql" />
-    <Content Include="Querys\sql\outbList.sql" />
-    <Content Include="Querys\sql\udoList.sql" />
-    <Content Include="Querys\sql\ufd1List.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

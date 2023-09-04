@@ -1,0 +1,12 @@
+D:\fontes\szarblewski\SzarFramework\SzarFramework\bin\x64\Debug\SzarFramework.dll
+D:\fontes\szarblewski\SzarFramework\SzarFramework\bin\x64\Debug\SzarFramework.pdb
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.csproj.AssemblyReference.cache
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\Interop.SAPbobsCOM.dll
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\Interop.SAPbouiCOM.dll
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.csproj.ResolveComReference.cache
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.Querys.hana.resources
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.Querys.sql.resources
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.csproj.GenerateResource.cache
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.csproj.CoreCompileInputs.cache
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.dll
+D:\fontes\szarblewski\SzarFramework\SzarFramework\obj\x64\Debug\SzarFramework.pdb

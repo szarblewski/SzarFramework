@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using SzarFramework.Attributes;
+using SzarFramework.Models;
 
 namespace SzarFramework
 {
@@ -10,8 +11,10 @@ namespace SzarFramework
 
         private readonly List<string> formUid;
         public Form oForm;
+        public List<DataBindModel> DataBind;
+        public List<GridFormaterModel> GridFormater;
 
-
+               
         protected Item GetItem(string uid)
         {
             //CapturaFormulario();
@@ -35,6 +38,8 @@ namespace SzarFramework
         protected FormBase()
         {
             formUid = new List<string>();
+            DataBind = new List<DataBindModel>();
+            GridFormater = new List<GridFormaterModel>();
             FormAttribute attribute = null;
             int index = 0;
             foreach (object obj2 in base.GetType().GetCustomAttributes(false))
@@ -432,7 +437,7 @@ namespace SzarFramework
         {
             if (this.formUid.Contains(pVal.FormTypeEx))
             {
-                oForm = B1AppDomain.Application.Forms.Item(formUID);
+                //oForm = B1AppDomain.Application.Forms.Item(formUID);
                 Form_Load_After(formUID, ref pVal, ref bubbleEvent);
             }
         }
@@ -440,7 +445,7 @@ namespace SzarFramework
         {
             if (this.formUid.Contains(pVal.FormTypeEx))
             {
-                oForm = B1AppDomain.Application.Forms.Item(formUID);
+                //oForm = B1AppDomain.Application.Forms.Item(formUID);
                 Form_Load_Before(formUID, ref pVal, ref bubbleEvent);
             }
         }

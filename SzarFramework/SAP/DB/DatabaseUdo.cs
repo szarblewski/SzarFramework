@@ -39,9 +39,11 @@ namespace SzarFramework.SAP
                     }
 
                     Recordset oRsReg = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
-                    oRsReg.DoQuery(String.Format(sql.udoList, table.Udos.Code));
+                    string sql = String.Format(QuerySelect.Select("udoList"), table.Udos.Code);
+                    oRsReg.DoQuery(sql);
                     oRsReg.MoveFirst();
                     string currentScreen = oRsReg.Fields.Item(1).Value.ToString();
+                    int qtd = oRsReg.RecordCount;
                     oRsReg.ClearMemory();
                     string newScreen = !string.IsNullOrEmpty(table.Udos.Form) ?
                                                 B1AppDomain.DictionaryUdosForms.Where(x => x.Key == table.Udos.Form).Select(x => x.Value).SingleOrDefault() :
@@ -54,7 +56,10 @@ namespace SzarFramework.SAP
                     {
                         UpdateUdo(table);
                     }
-                    else
+                    else if(string.IsNullOrEmpty(currentScreen) && comp != 0)
+                    {
+                        AddUdo(table);
+                    }else if(comp == 0 && qtd <= 0)
                     {
                         AddUdo(table);
                     }
@@ -158,6 +163,8 @@ namespace SzarFramework.SAP
             oUserObjectMD.Name = table.Udos.Name;
             oUserObjectMD.ObjectType = table.Udos.ObjectType;
             oUserObjectMD.TableName = table.Udos.TableName;
+            
+            
             if (table.Udos.Log)
             {
                 oUserObjectMD.CanLog = BoYesNoEnum.tYES;

@@ -68,7 +68,15 @@ namespace SzarFramework.Connections
                         Activator.CreateInstance(type);
                     }
                     catch { }
-                    
+
+                }
+                else if (type.Name == "Screens")
+                {
+                    try
+                    {
+                        Activator.CreateInstance(type);
+                    }
+                    catch { }
                 }
 
             }

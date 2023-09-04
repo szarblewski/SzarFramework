@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using SzarFramework.Querys;
@@ -29,7 +30,8 @@ namespace SzarFramework.Models
                 List<OUTBModel> tbs = new List<OUTBModel>();
 
                 Recordset oRs = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
-                tbs = oRs.DoQuery(sql.outbList, this);
+                tbs = oRs.DoQuery(QuerySelect.Select("outbList"), this);
+                
                 oRs.ClearMemory();
                 return tbs;
 

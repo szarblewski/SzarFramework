@@ -37,11 +37,11 @@ namespace SzarFramework.Models
                 Recordset oRs = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
                 if (string.IsNullOrEmpty(tableName))
                 {
-                    flds = oRs.DoQuery(sql.cufdList, this);
+                    flds = oRs.DoQuery(QuerySelect.Select("cufdList"), this);
                 }
                 else
                 {
-                    flds = oRs.DoQuery(sql.cufdList + " where tableid = '" + tableName + "'", this);
+                    flds = oRs.DoQuery(QuerySelect.Select("cufdList") + " where \"TableID\" = '" + tableName + "'", this);
                 }
                     
 

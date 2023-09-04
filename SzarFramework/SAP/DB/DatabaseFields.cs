@@ -31,7 +31,7 @@ namespace SzarFramework.SAP
                 foreach (KeyValuePair<object, TableModel> table in B1AppDomain.DictionaryTablesFields)
                 {
                     List<CUFDModel> userFieldList = table.Value.TableType == TableType.System ?
-                        userFields.Fields() :
+                        userFields.Fields(table.Value.Name) :
                         userFields.Fields("@" + table.Value.Name);
 
                     foreach (FieldModel field in table.Value.Fields)
@@ -149,7 +149,7 @@ namespace SzarFramework.SAP
             objUserFieldsMD = (UserFieldsMD)B1AppDomain.Company.GetBusinessObject(SAPbobsCOM.BoObjectTypes.oUserFields);
 
 
-            if (objUserFieldsMD.GetByKey("@" + field.TableName, idField(field.Name, field.TableName)))
+            if (objUserFieldsMD.GetByKey("@" + field.TableName, idField(field.Name, field.TableName, tableType)))
             {
 
                 //seta propriedades
@@ -174,10 +174,20 @@ namespace SzarFramework.SAP
             
         }
 
-        private static int idField(string name, string tableName)
+        private static int idField(string name, string tableName, TableType tableType)
         {
             Recordset _rset = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
-            string query = string.Format(sql.getFieldID, name, "@" + tableName);
+            string query = "";
+            if(tableType == TableType.System)
+            {
+                query = string.Format(QuerySelect.Select("getFieldID"), name, tableName);
+            }
+            else
+            {
+                query = string.Format(QuerySelect.Select("getFieldID"), name, "@" + tableName);
+            }
+            
+            
             _rset.DoQuery(query);
 
             string ret = _rset.Fields.Item(0).Value.ToString();

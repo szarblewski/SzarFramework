@@ -9,6 +9,8 @@ using SAPbobsCOM;
 using SAPbouiCOM;
 using Form = SAPbouiCOM.Form;
 using Application = System.Windows.Forms.Application;
+using Newtonsoft.Json;
+using System.Xml;
 
 namespace TesteFramework
 {
@@ -25,9 +27,9 @@ namespace TesteFramework
 
             //exemplo de conexao com ui
             ConnectUI con = new ConnectUI();
-            con.Connect("TesteFramework".GetTypesFromAssembly(), true);
+            con.Connect("TesteFramework".GetTypesFromAssembly(), false);
 
-                      
+
 
             //exemplo de conexao com DI
             //ConnectDI con = new ConnectDI();
@@ -41,6 +43,10 @@ namespace TesteFramework
             //con.DbServerType = BoDataServerTypes.dst_MSSQL2014;
             //con.Language = BoSuppLangs.ln_Portuguese_Br;
             //bool teste = con.Connect();
+
+
+            
+
 
 
 

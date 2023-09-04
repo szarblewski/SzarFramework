@@ -25,7 +25,7 @@ namespace SzarFramework.Models
                 List<UFD1Model> fieldItems = new List<UFD1Model>();
 
                 Recordset oRs = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
-                fieldItems = oRs.DoQuery(String.Format(sql.ufd1List, tableName, name), this);
+                fieldItems = oRs.DoQuery(String.Format(QuerySelect.Select("ufd1List"), tableName, name), this);
                 oRs.ClearMemory();
                 return fieldItems;
 

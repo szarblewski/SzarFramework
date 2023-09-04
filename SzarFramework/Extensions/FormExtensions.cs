@@ -17,6 +17,7 @@ namespace SzarFramework
         private static string Message = "";
         private static string FileName = "";
 
+        
         private static void SelectPath()
         {
             WindowWrapper owner = new WindowWrapper();
@@ -37,6 +38,7 @@ namespace SzarFramework
             dialog.ShowDialog(owner);
             Path = dialog.FileName;
             FileName = dialog.SafeFileName;
+            
         }
 
         /// <summary>
@@ -188,5 +190,7 @@ namespace SzarFramework
                 fileName = "";
             }
         }
+
+        
     }
 }

@@ -42,6 +42,21 @@ namespace SzarFramework
             }
         }
 
+        public static void DoQuery(this Recordset oRs, string query)
+        {
+            try
+            {
+                if(oRs == null)
+                    oRs = B1AppDomain.Company.GetBusinessObject(BoObjectTypes.BoRecordset);
+                
+                oRs.DoQuery(query);
+            }
+            catch (Exception ex)
+            {
+                B1Exception.throwException("Erro ao executar query: " + query, ex);
+            }
+        }
+
 
     }
 }

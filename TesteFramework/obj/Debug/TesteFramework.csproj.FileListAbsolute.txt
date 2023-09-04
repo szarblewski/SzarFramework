@@ -14,3 +14,5 @@ D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.cspr
 D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.csproj.CopyComplete
 D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.exe
 D:\fontes\szarblewski\SzarFramework\TesteFramework\obj\Debug\TesteFramework.pdb
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\Newtonsoft.Json.dll
+D:\fontes\szarblewski\SzarFramework\TesteFramework\bin\Debug\Newtonsoft.Json.xml
